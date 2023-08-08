@@ -269,6 +269,10 @@ div.login_box {
     text-align: center;
 }
 
+.statement.one_statement a {
+    margin: 0 15px;
+}
+
 @media (max-width: 767px) {
     .task_description .statement.many_statements .main_statements {
         margin-bottom: 15px;
@@ -994,6 +998,13 @@ td.token_rules p:last-child {
 
 #lang {
     width: 100px;
+}
+
+/** Printing interface */
+
+#printjob_list tbody tr td.no_printjobs {
+    font-style: italic;
+    text-align: center !important;
 }
 
 /* Contest selection page */
