@@ -14,8 +14,12 @@
 {% if contest.languages|map("to_language")|map(attribute="source_extensions")|any("contains", ".cpp") %}
 <h3>C++</h3>
 
-<p><a href="{{ url("stl", "en", "index.html") }}">{% trans %}Standard Template Library{% endtrans %}</a></p>
+<<<<<<< HEAD
+<!-- <p><a href="{{ url("stl", "en", "index.html") }}">{% trans %}Standard Template Library{% endtrans %}</a></p> -->
 <p><a href="http://www.cplusplus.com/reference/">Cplusplus Reference</a></p>
+=======
+<p><a href="{{ url("stl", "en", "index.html") }}">{% trans %}Standard Template Library{% endtrans %}</a></p>
+>>>>>>> upstream/master
 {% endif %}
 
 {% if contest.languages|map("to_language")|map(attribute="source_extensions")|any("contains", ".java") %}
