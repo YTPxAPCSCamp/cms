@@ -411,8 +411,7 @@ class TpsTaskLoader(TaskLoader):
 
             add_optional_name = data['add_optional_name'] if 'add_optional_name' in data else False
 
-            subtasks = sorted(subtasks_data['subtasks'].items(), key=lambda subtask: subtask[1]['index'])
-            for subtask, subtask_data in subtasks:
+            for subtask, subtask_data in subtasks_data['subtasks'].items():
                 subtask_no += 1
                 score = int(subtask_data["score"])
                 if use_mapping:
