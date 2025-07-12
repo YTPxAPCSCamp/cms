@@ -122,6 +122,24 @@ class TpsTaskLoader(TaskLoader):
             raise IOError('No task found at path %s' % json_src)
         with io.open(json_src, 'rt', encoding='utf-8') as json_file:
             data = json.load(json_file)
+        # To match YTPxAPCS/TPS problem.json to this version
+        data['tps_web_url'] = ""
+        data['feedback_level'] = "full"
+        data['max_submission_number'] = None
+        data['max_user_test_number'] = None
+        data['min_submission_interval'] = 60
+        data['min_user_test_interval'] = None
+        data['score_precision'] = 2
+        data['score_mode'] = "max_subtask"
+        data['score_type'] = "GroupMin"
+
+        data['task_type'] = data['type']
+        if data['has_grader']:
+            data["task_type_params"]= "{\"task_type_parameters_Batch_compilation\": \"grader\"}"
+        else:
+            data["task_type_params"]= "{\"task_type_parameters_Batch_compilation\": \"alone\"}"
+
+
 
         name = data['code']
         logger.info("Loading parameters for task %s.", name)
