@@ -134,10 +134,11 @@ class TpsTaskLoader(TaskLoader):
         data['score_type'] = "GroupMin"
 
         data['task_type'] = data['type']
-        if data['has_grader']:
-            data["task_type_params"]= "{\"task_type_parameters_Batch_compilation\": \"grader\"}"
-        else:
-            data["task_type_params"]= "{\"task_type_parameters_Batch_compilation\": \"alone\"}"
+        if not ("task_type_params" in data):
+            if data['has_grader']:
+                data["task_type_params"]= "{\"task_type_parameters_Batch_compilation\": \"grader\"}"
+            else:
+                data["task_type_params"]= "{\"task_type_parameters_Batch_compilation\": \"alone\"}"
 
 
 
